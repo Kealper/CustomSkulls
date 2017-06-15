@@ -76,7 +76,7 @@ public class CommandHandler {
 		sender.sendMessage(ChatColor.GRAY + "Server Information:");
 
 		// Return player info
-		sender.sendMessage(ChatColor.GOLD + "Players: " + ChatColor.YELLOW + String.valueOf(plugin.getServer().getOnlinePlayers().length) + " / " + String.valueOf(plugin.getServer().getMaxPlayers()));
+		sender.sendMessage(ChatColor.GOLD + "Players: " + ChatColor.YELLOW + String.valueOf(plugin.getServer().getOnlinePlayers().size()) + " / " + String.valueOf(plugin.getServer().getMaxPlayers()));
 		sender.sendMessage(ChatColor.GOLD + "Running Plugins: " + ChatColor.YELLOW + String.valueOf(pluginManager.getPlugins().length));
 
 		// Return the version info
