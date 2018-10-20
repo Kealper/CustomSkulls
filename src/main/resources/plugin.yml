@@ -5,6 +5,7 @@ version: ${project.version}
 author: timvisee
 website: http://timvisee.com/
 softdepend: [Vault] #hack to fix trove errors
+api-version: 1.13
 commands:
   customskulls:
     description: Custom Skulls command

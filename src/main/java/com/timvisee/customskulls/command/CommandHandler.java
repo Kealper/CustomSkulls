@@ -6,6 +6,7 @@ import java.util.Date;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -52,7 +53,7 @@ public class CommandHandler {
 
 		sender.sendMessage(ChatColor.GREEN + "==========[ CUSTOM SKULLS STATUS ]==========");
 		sender.sendMessage(ChatColor.GRAY + "Plugin Information:");
-				
+
 		// Return the running time
 		long diff = new Date().getTime() - plugin.getEnabledDate().getTime();
 		int millis = (int) (diff % 1000);
@@ -177,7 +178,7 @@ public class CommandHandler {
 				return true;
 			}
 			if(args[1].equals("version") || args[1].equals("ver") || args[1].equals("v") ||
-					args[1].equals("info") || args[1].equals("i") || 
+					args[1].equals("info") || args[1].equals("i") ||
 					args[1].equals("about") || args[1].equals("a")) {
 				// View the help
 				sender.sendMessage("");
@@ -200,7 +201,7 @@ public class CommandHandler {
 			if (!plugin.getPermissionsManager().hasPermission((Player) sender, "customskulls.command.give")){
 				sender.sendMessage(ChatColor.DARK_RED + "You don't have customskulls.command.give.");
 				return true;
-			}					
+			}
 		}
 
 		if (args.length == 1) {
@@ -226,7 +227,7 @@ public class CommandHandler {
 		}
 
 		if (args.length == 3) {
-			amount = 1;					
+			amount = 1;
 		} else {
 			if (isInteger(args[3])) {
 				amount = Integer.parseInt(args[3]);
@@ -238,19 +239,19 @@ public class CommandHandler {
 		}
 
 		if(args[2].equalsIgnoreCase("creeper")) {
-			player.getInventory().addItem(new ItemStack(397, amount, (short) 0, (byte) 4));
+			player.getInventory().addItem(new ItemStack(Material.CREEPER_HEAD, amount));
 			player.sendMessage(ChatColor.GREEN + "You received " + String.valueOf(amount) + " creeper " + (amount==1 ? "skull" : "skulls"));
 			return true;
 		} else if(args[2].equalsIgnoreCase("zombie")) {
-			player.getInventory().addItem(new ItemStack(397, amount, (short) 0, (byte) 2));
+			player.getInventory().addItem(new ItemStack(Material.ZOMBIE_HEAD, amount));
 			player.sendMessage(ChatColor.GREEN + "You received " + String.valueOf(amount) + " zombie " + (amount==1 ? "skull" : "skulls"));
 			return true;
 		} else if(args[2].equalsIgnoreCase("skeleton")) {
-			player.getInventory().addItem(new ItemStack(397, amount, (short) 0, (byte) 0));
+			player.getInventory().addItem(new ItemStack(Material.SKELETON_SKULL, amount));
 			player.sendMessage(ChatColor.GREEN + "You received " + String.valueOf(amount) + " skeleton " + (amount==1 ? "skull" : "skulls"));
 			return true;
 		} else if(args[2].equalsIgnoreCase("wither")) {
-			player.getInventory().addItem(new ItemStack(397, amount, (short) 0, (byte) 1));
+			player.getInventory().addItem(new ItemStack(Material.WITHER_SKELETON_SKULL, amount));
 			player.sendMessage(ChatColor.GREEN + "You received " + String.valueOf(amount) + " wither " + (amount==1 ? "skull" : "skulls"));
 			return true;
 		} else {

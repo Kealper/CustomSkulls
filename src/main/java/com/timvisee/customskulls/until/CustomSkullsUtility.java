@@ -1,5 +1,6 @@
 package com.timvisee.customskulls.until;
 
+import org.bukkit.Material;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Skeleton;
 import org.bukkit.inventory.ItemStack;
@@ -15,9 +16,9 @@ public class CustomSkullsUtility {
 			case NORMAL:
 				return getSkullItemStack(amount, (byte) 0);
 			case WITHER:
-				return getSkullItemStack(amount, (byte) 1);			
+				return getSkullItemStack(amount, (byte) 1);
 			}
-					
+
 		case ZOMBIE:
 			return getSkullItemStack(amount, (byte) 2);
 		case PLAYER:
@@ -28,19 +29,18 @@ public class CustomSkullsUtility {
 			return null;
 		}
 	}
-	
+
 	public static ItemStack getSkullItemStack(int amount, String playerName) {
-		ItemStack s = new ItemStack(397, amount);
-    	s.setDurability((short)3);
+		ItemStack s = new ItemStack(Material.PLAYER_HEAD, amount);
     	SkullMeta meta = (SkullMeta)s.getItemMeta();
         meta.setOwner(playerName);
         s.setItemMeta(meta);
     	return s;
 	}
-	
+
 	@SuppressWarnings("deprecation")
 	public static ItemStack getSkullItemStack(int amount, byte data) {
 		amount = Math.max(0, amount);
-		return (new ItemStack(397, amount, (short) 0, data));
+		return (new ItemStack(Material.PLAYER_HEAD, amount, (short) 0, data));
 	}
 }
